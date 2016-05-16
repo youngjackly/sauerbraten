@@ -85,13 +85,13 @@ bool initwarning(const char *desc, int level, int type)
 #define SCR_MAXH 10000
 #define SCR_DEFAULTW 1024
 #define SCR_DEFAULTH 768
-VARF(scr_w, SCR_MINW, -1, SCR_MAXW, initwarning("screen resolution"));
-VARF(scr_h, SCR_MINH, -1, SCR_MAXH, initwarning("screen resolution"));
-VARF(colorbits, 0, 0, 32, initwarning("color depth"));
-VARF(depthbits, 0, 0, 32, initwarning("depth-buffer precision"));
-VARF(stencilbits, 0, 0, 32, initwarning("stencil-buffer precision"));
-VARF(fsaa, -1, -1, 16, initwarning("anti-aliasing"));
-VARF(vsync, -1, -1, 1, initwarning("vertical sync"));
+VARF(scr_w, SCR_MINW, -1, SCR_MAXW, initwarning("screen resolution"))
+VARF(scr_h, SCR_MINH, -1, SCR_MAXH, initwarning("screen resolution"))
+VARF(colorbits, 0, 0, 32, initwarning("color depth"))
+VARF(depthbits, 0, 0, 32, initwarning("depth-buffer precision"))
+VARF(stencilbits, 0, 0, 32, initwarning("stencil-buffer precision"))
+VARF(fsaa, -1, -1, 16, initwarning("anti-aliasing"))
+VARF(vsync, -1, -1, 1, initwarning("vertical sync"))
 
 void writeinitcfg()
 {
@@ -475,7 +475,7 @@ void setfullscreen(bool enable)
 #ifdef _DEBUG
 VARF(fullscreen, 0, 0, 1, setfullscreen(fullscreen!=0));
 #else
-VARF(fullscreen, 0, 1, 1, setfullscreen(fullscreen!=0));
+VARF(fullscreen, 0, 1, 1, setfullscreen(fullscreen!=0))
 #endif
 
 void screenres(int *w, int *h)
@@ -996,8 +996,8 @@ static bool findarg(int argc, char **argv, const char *str)
 
 static int clockrealbase = 0, clockvirtbase = 0;
 static void clockreset() { clockrealbase = SDL_GetTicks(); clockvirtbase = totalmillis; }
-VARFP(clockerror, 990000, 1000000, 1010000, clockreset());
-VARFP(clockfix, 0, 0, 1, clockreset());
+VARFP(clockerror, 990000, 1000000, 1010000, clockreset())
+VARFP(clockfix, 0, 0, 1, clockreset())
 
 int getclockmillis()
 {

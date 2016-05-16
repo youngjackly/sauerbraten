@@ -17,7 +17,7 @@ namespace game
     VARP(maxdebris, 10, 25, 1000);
     VARP(maxbarreldebris, 5, 10, 1000);
 
-    ICOMMAND(getweapon, "", (), intret(player1->gunselect));
+    ICOMMAND(getweapon, "", (), intret(player1->gunselect))
 
     void gunselect(int gun, fpsent *d)
     {
@@ -42,7 +42,7 @@ namespace game
         if(gun != player1->gunselect) gunselect(gun, player1);
         else playsound(S_NOAMMO);
     }
-    ICOMMAND(nextweapon, "ii", (int *dir, int *force), nextweapon(*dir, *force!=0));
+    ICOMMAND(nextweapon, "ii", (int *dir, int *force), nextweapon(*dir, *force!=0))
 
     int getweapon(const char *name)
     {
@@ -59,7 +59,7 @@ namespace game
         if(force || player1->ammo[gun]) gunselect(gun, player1);
         else playsound(S_NOAMMO);
     }
-    ICOMMAND(setweapon, "si", (char *name, int *force), setweapon(name, *force!=0));
+    ICOMMAND(setweapon, "si", (char *name, int *force), setweapon(name, *force!=0))
 
     void cycleweapon(int numguns, int *guns, bool force = false)
     {
